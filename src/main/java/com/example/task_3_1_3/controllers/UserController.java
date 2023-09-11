@@ -19,15 +19,11 @@ import java.security.Principal;
 @RequestMapping("/user")
 public class UserController {
     private final UserService userService;
-    private RoleService roleService;
+    private final RoleService roleService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, RoleService roleService) {
         this.userService = userService;
-    }
-
-    @Autowired
-    public void setRoleService(RoleService roleService) {
         this.roleService = roleService;
     }
 
