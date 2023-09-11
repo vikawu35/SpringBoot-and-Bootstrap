@@ -21,20 +21,18 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @NotEmpty(message = "Field cannot be empty ")
-    @Pattern(regexp = "^[a-zA-Zа-яА-Я]+$", message = "Wrong format ")
     private String name;
 
-
+    @NotEmpty(message = "Field cannot be empty")
     private String lastName;
-
 
     @Min(value = 12, message = "Age must be above 12 ")
     private Byte age;
 
     @Column(unique = true)
     @NotEmpty(message = "Field cannot be empty ")
+    @Pattern(regexp = ".+@.+\\..+", message = "Wrong format")
     private String username;
 
     private String password;
